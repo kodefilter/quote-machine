@@ -3,7 +3,6 @@ import logo from "./logo.svg";
 import "./App.css";
 
 //api end point for getting random quote
-//change after useraccount renaming on my mac
 const endpoint = "https://talaikis.com/api/quotes/random/";
 
 class App extends Component {
@@ -51,12 +50,14 @@ class App extends Component {
       return <div>Loading ... </div>;
     } else {
       return (
-        <div id="quote-box">
+        <div className="jumbotron" id="quote-box">
           <p id="text">{quote}</p>
           <p id="author">{author}</p>
-          <button id="new-quote" onClick={this.getQuote.bind(this)}>
+
+          <div className="d-flex justify-content-between">
+          <button type="button" className="btn btn-outline-primary" id="new-quote" onClick={this.getQuote.bind(this)}>
           New Quote
-          </button>
+          </button >
           <a
             id="tweet-quote"
             rel="noopener noreferrer"
@@ -73,6 +74,7 @@ class App extends Component {
           >
             Tweet
           </a>
+          </div>
         </div>
       );
     }
