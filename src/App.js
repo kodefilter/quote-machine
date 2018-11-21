@@ -38,6 +38,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getQuote();
+   
   }
 
   render() {
@@ -47,22 +48,25 @@ class App extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading ... </div>;
+      return (
+        <div className="jumbotron" id="quote-box">
+          <p id="text">Loading ...</p>
+        </div>);
     } else {
       return (
         <div className="jumbotron" id="quote-box">
           <p id="text">{quote}</p>
-          <p id="author">{author}</p>
+          <p id="author"> - {author}</p>
 
           <div className="d-flex justify-content-between">
-          <button type="button" className="btn btn-outline-primary" id="new-quote" onClick={this.getQuote.bind(this)}>
+          <button type="button" className="btn btn-primary" id="new-quote" onClick={this.getQuote.bind(this)}>
           New Quote
           </button >
           <a
             id="tweet-quote"
             rel="noopener noreferrer"
+            className="btn btn-primary"
             target="_blank"
-            class="twitter-share-button"
             href={
               "https://twitter.com/intent/tweet?text=" + quote + " - " + author
             }

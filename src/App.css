@@ -25,8 +25,20 @@
 .jumbotron {
   width: 40%;
   margin: auto;
-  color: green;
+  border: 2px solid hsl(207, 78%, 62%);
+
 }
+
+.jumbotron:hover
+{
+        box-shadow:
+                2px 2px #53a7ea,
+                4px 4px #53a7ea,
+                6px 6px #53a7ea;
+        -webkit-transform: translateX(-6px);
+        transform: translateX(-6px);
+}
+
 
 #author {
   text-align: right;
